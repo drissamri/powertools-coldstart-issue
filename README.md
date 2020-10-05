@@ -1,27 +1,28 @@
 ```
 mvn clean package 
 ```
+
 ```
 sls deploy
 ```
 
 ```
-lumigo-cli measure-lambda-cold-starts -p dev -n client-service-dev-create-client -r eu-central-1 -f src/test/resources/create-client-event.json
+lumigo-cli measure-lambda-cold-starts -n client-service-dev-create-client -r eu-central-1 -f src/test/resources/create-client-event.json
 ```
 
 lambda-logging (baseline) 
 ```
- {
-      "functionName": "client-service-dev-create-client",
-      "memorySize": 3008,
-      "coldStarts": 40,
-      "min": 1142.29,
-      "p25": 1192.22,
-      "median": 1213.9,
-      "p75": 1223.73,
-      "p95": 1261.69,
-      "max": 1276.78,
-      "stddev": 29.0004
+{
+  "functionName": "client-service-dev-create-client",
+  "memorySize": 3008,
+  "coldStarts": 65,
+  "min": 1475.29,
+  "p25": 1573.41,
+  "median": 1602.8,
+  "p75": 1624.75,
+  "p95": 1669.79,
+  "max": 1712.77,
+  "stddev": 43.1292
 }
 ```
 powertools-logging
