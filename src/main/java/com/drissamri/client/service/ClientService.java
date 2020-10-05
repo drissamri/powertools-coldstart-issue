@@ -1,8 +1,8 @@
 package com.drissamri.client.service;
 
 import com.drissamri.client.model.Client;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 import software.amazon.awssdk.services.dynamodb.model.PutItemRequest;
@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class ClientService {
-    private static final Logger LOG = LoggerFactory.getLogger(ClientService.class);
+    private static final Logger LOG = LogManager.getLogger();
     private final DynamoDbAsyncClient dynamoDbClient;
 
     public ClientService(DynamoDbAsyncClient dynamoDbClient) {
