@@ -28,14 +28,14 @@ public class LambdaHandler implements RequestHandler<APIGatewayProxyRequestEvent
 
     @Override
     public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent event, Context context) {
-        LOG.info("Input: {}", event);
-
         try {
             Client client = JSON.std.beanFrom(Client.class, event.getBody());
-            LOG.info("Client: {}", client);
+            LOG.info("Creating client: {}", client);
             clientService.create(client);
+            LOG.info("Client created: {}", client.getName());
             return HttpResponses.ok(JSON.std.asString(client));
-        } catch (IOException e) {
+        } catch (IOException ex) {
+            LOG.warn("Invocation failed: {}", ex.getMessage());
             return HttpResponses.unprocessableEntity("Invalid input");
         }
     }
