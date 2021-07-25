@@ -10,9 +10,9 @@ import com.drissamri.client.model.Client;
 import com.drissamri.client.service.ClientService;
 import com.fasterxml.jackson.jr.ob.JSON;
 import org.apache.logging.log4j.LogManager;
+import software.amazon.lambda.powertools.logging.Logging;
 
 import org.apache.logging.log4j.Logger;
-import software.amazon.lambda.powertools.logging.PowertoolsLogging;
 
 import java.io.IOException;
 
@@ -29,7 +29,7 @@ public class LambdaHandler implements RequestHandler<APIGatewayProxyRequestEvent
     }
 
     @Override
-    @PowertoolsLogging
+    @Logging
     public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent event, Context context) {
         try {
             Client client = JSON.std.beanFrom(Client.class, event.getBody());

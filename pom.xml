@@ -16,7 +16,6 @@
 
         <aws.sdk.version>2.15.2</aws.sdk.version>
         <aws.lambda-events.version>3.3.1</aws.lambda-events.version>
-        <aws.lambda.java-core.version>1.2.1</aws.lambda.java-core.version>
     </properties>
 
     <dependencies>
@@ -25,11 +24,6 @@
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-lambda-java-events</artifactId>
             <version>${aws.lambda-events.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-lambda-java-core</artifactId>
-            <version>${aws.lambda.java-core.version}</version>
         </dependency>
 
         <!-- DynamoDB -->
@@ -58,7 +52,7 @@
         <dependency>
             <groupId>software.amazon.lambda</groupId>
             <artifactId>powertools-logging</artifactId>
-            <version>0.4.0-beta</version>
+            <version>1.7.1</version>
         </dependency>
 
         <!-- JSON -->
